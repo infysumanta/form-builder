@@ -1,6 +1,6 @@
 import React from "react";
 import { Separator } from "@/components/ui/separator";
-import { FormElements } from "@/components/form/FormElements";
+import { FormElements } from "@/components/builder/FormElements";
 import SidebarButtonElement from "./SidebarButtonElement";
 function FormElementsSidebar() {
   return (

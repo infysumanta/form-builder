@@ -1,5 +1,5 @@
 import { GetFormById } from "@/actions/form";
-import FormBuilder from "@/components/form/FormBuilder";
+import FormBuilder from "@/components/builder/FormBuilder";
 import React from "react";
 
 async function BuilderPage({

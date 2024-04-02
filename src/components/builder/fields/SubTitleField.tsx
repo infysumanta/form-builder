@@ -9,7 +9,7 @@ import {
   FormElement,
   FormElementInstance,
 } from "@/components/types/types";
-import { SubmitFunction } from "@/components/form/FormElements";
+import { SubmitFunction } from "@/components/builder/FormElements";
 import useDesigner from "@/components/hooks/useDesigner";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
