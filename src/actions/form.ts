@@ -119,3 +119,52 @@ export async function GetFormById(id: number) {
     },
   });
 }
+
+/**
+ * Publishes a form with the specified ID.
+ *
+ * @param id - The ID of the form to publish.
+ * @returns A promise that resolves to the updated form object.
+ * @throws {UserNotFoundErr} If the current user is not found.
+ */
+export async function PublishForm(id: number) {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+
+  return await prisma.form.update({
+    data: {
+      published: true,
+    },
+    where: {
+      userId: user.id,
+      id,
+    },
+  });
+}
+
+/**
+ * Updates the content of a form with the specified ID.
+ *
+ * @param id - The ID of the form to update.
+ * @param jsonContent - The new JSON content for the form.
+ * @returns A promise that resolves to the updated form.
+ * @throws {UserNotFoundErr} If the current user is not found.
+ */
+export async function UpdateFormContent(id: number, jsonContent: string) {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+
+  return await prisma.form.update({
+    where: {
+      userId: user.id,
+      id,
+    },
+    data: {
+      content: jsonContent,
+    },
+  });
+}
