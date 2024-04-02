@@ -168,3 +168,26 @@ export async function UpdateFormContent(id: number, jsonContent: string) {
     },
   });
 }
+
+/**
+ * Retrieves a form with its submissions for a given ID.
+ * @param id - The ID of the form.
+ * @returns A Promise that resolves to the form with its submissions.
+ * @throws UserNotFoundErr if the current user is not found.
+ */
+export async function GetFormWithSubmissions(id: number) {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+
+  return await prisma.form.findUnique({
+    where: {
+      userId: user.id,
+      id,
+    },
+    include: {
+      FormSubmissions: true,
+    },
+  });
+}
