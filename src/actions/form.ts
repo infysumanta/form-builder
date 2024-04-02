@@ -99,3 +99,23 @@ export async function CreateForm(data: formSchemaType) {
 
   return form.id;
 }
+
+/**
+ * Retrieves a form by its ID.
+ * @param id - The ID of the form to retrieve.
+ * @returns A Promise that resolves to the form object if found, or null if not found.
+ * @throws {UserNotFoundErr} If the current user is not found.
+ */
+export async function GetFormById(id: number) {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+
+  return await prisma.form.findUnique({
+    where: {
+      userId: user.id,
+      id,
+    },
+  });
+}
