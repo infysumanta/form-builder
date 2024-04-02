@@ -7,7 +7,7 @@ function Logo() {
       href={"/"}
       className="font-bold text-3xl bg-indigo-400 text-transparent bg-clip-text hover:cursor-pointer"
     >
-      Form
+      Form Builder
     </Link>
   );
 }
