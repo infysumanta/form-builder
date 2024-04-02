@@ -4,8 +4,8 @@ import {
   ElementsType,
   FormElement,
   FormElementInstance,
+  SubmitFunction,
 } from "@/components/types/types";
-import { SubmitFunction } from "@/components/builder/FormElements";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";

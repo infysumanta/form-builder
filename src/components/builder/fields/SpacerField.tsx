@@ -5,7 +5,6 @@ import {
   FormElement,
   FormElementInstance,
 } from "@/components/types/types";
-import { SubmitFunction } from "@/components/builder/FormElements";
 import { Label } from "@/components/ui/label";
 import { z } from "zod";
 import { useForm } from "react-hook-form";

@@ -20,8 +20,12 @@ import {
 } from "@/components/ui/form";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-import { ElementsType, FormElementInstance } from "@/components/types/types";
-import { SubmitFunction } from "../FormElements";
+import {
+  ElementsType,
+  FormElement,
+  FormElementInstance,
+  SubmitFunction,
+} from "@/components/types/types";
 
 const type: ElementsType = "TextField";
 

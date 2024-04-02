@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  ElementsType,
-  FormElement,
-  FormElementInstance,
-  SubmitFunction,
-} from "../FormElements";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
@@ -37,6 +31,12 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import { toast } from "@/components/ui/use-toast";
+import {
+  ElementsType,
+  FormElement,
+  FormElementInstance,
+  SubmitFunction,
+} from "@/components/types/types";
 
 const type: ElementsType = "SelectField";
 
