@@ -191,3 +191,49 @@ export async function GetFormWithSubmissions(id: number) {
     },
   });
 }
+
+/**
+ * Retrieves the form content by its URL and increments the visit count.
+ * @param formUrl - The URL of the form.
+ * @returns A Promise that resolves to the updated form content.
+ */
+export async function GetFormContentByUrl(formUrl: string) {
+  return await prisma.form.update({
+    select: {
+      content: true,
+    },
+    data: {
+      visits: {
+        increment: 1,
+      },
+    },
+    where: {
+      shareURL: formUrl,
+    },
+  });
+}
+
+/**
+ * Submits a form by updating the form's submission count and creating a new form submission.
+ * @param formUrl - The URL of the form to submit.
+ * @param content - The content of the form submission.
+ * @returns A Promise that resolves to the updated form object.
+ */
+export async function SubmitForm(formUrl: string, content: string) {
+  return await prisma.form.update({
+    data: {
+      submissions: {
+        increment: 1,
+      },
+      FormSubmissions: {
+        create: {
+          content,
+        },
+      },
+    },
+    where: {
+      shareURL: formUrl,
+      published: true,
+    },
+  });
+}
